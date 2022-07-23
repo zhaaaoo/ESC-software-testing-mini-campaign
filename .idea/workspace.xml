@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c7b4ad3-92da-494d-b198-5b8dd54b0de6" name="Changes" comment="Setup">
+      <change afterPath="$PROJECT_DIR$/tests/AccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/CompareCSVTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/resource/accountlist1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/resource/accountlist2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataReconcilation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataReconcilation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESC_software_testing_mini_campaign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ESC_software_testing_mini_campaign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CompareCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CompareCSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +48,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Wang Zhao/FILES/SUTD/Term 5/50.003 Software Construction/Software Testing Mini Campaign/ESC_software_testing_mini_campaign/tests/resource&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -49,12 +56,74 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Wang Zhao\FILES\SUTD\Term 5\50.003 Software Construction\Software Testing Mini Campaign\ESC_software_testing_mini_campaign\tests\resource" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Wang Zhao\FILES\SUTD\Term 5\50.003 Software Construction\Software Testing Mini Campaign\ESC_software_testing_mini_campaign\tests\resource" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CompareCSVTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ESC_software_testing_mini_campaign" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ESC_software_testing_mini_campaign" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest.compareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ESC_software_testing_mini_campaign" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AccountTest" />
+      <option name="METHOD_NAME" value="compareTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompareCSVTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ESC_software_testing_mini_campaign" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompareCSVTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompareCSVTest.compareCSVTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ESC_software_testing_mini_campaign" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CompareCSVTest" />
+      <option name="METHOD_NAME" value="compareCSVTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CompareCSVTest" />
+        <item itemvalue="JUnit.AccountTest" />
+        <item itemvalue="JUnit.CompareCSVTest.compareCSVTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.AccountTest.compareTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,6 +135,9 @@
       <updated>1657363538644</updated>
       <workItem from="1657363541323" duration="552000" />
       <workItem from="1657364118709" duration="1871000" />
+      <workItem from="1658201966941" duration="5626000" />
+      <workItem from="1658593756406" duration="2640000" />
+      <workItem from="1658601365856" duration="6224000" />
     </task>
     <task id="LOCAL-00001" summary="Setup">
       <created>1657363961020</created>
