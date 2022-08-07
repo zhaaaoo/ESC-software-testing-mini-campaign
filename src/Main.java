@@ -7,7 +7,11 @@ public class Main {
         String file3_path = "./sample/sample_file_3.csv";
         String file4_path = "./sample/sample_file_output_comparing_1_and_3.csv";
 
-        CompareCSV compareCSV = new CompareCSV(file1_path, file3_path);
+        String file_test1 = "tests/resource/accountlist1.csv";
+        String file_test2 = "tests/resource/accountlist2.csv";
+
+//        CompareCSV compareCSV = new CompareCSV(file1_path, file3_path);
+        CompareCSV compareCSV = new CompareCSV(file_test1, file_test2);
 
         compareCSV.compare();
     }

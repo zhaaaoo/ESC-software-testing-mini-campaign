@@ -22,11 +22,14 @@ public class CompareCSV {
     
     private String file1_path;
     private String file2_path;
-    private ArrayList<String> compared_records = new ArrayList<String>();
+    private ArrayList<String> compared_records;
+    private String output_file;
 
     public CompareCSV(String file1_path, String file2_path) {
         this.file1_path = file1_path;
         this.file2_path = file2_path;
+        this.output_file = "";
+        this.compared_records = new ArrayList<>();
     }
 
     /**
@@ -61,7 +64,9 @@ public class CompareCSV {
   
             }
             file1.close();
-            writeToFile(compared_records);
+            if (compared_records.size() > 0) {
+                writeToFile(compared_records);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,8 +74,11 @@ public class CompareCSV {
 
     private void writeToFile(ArrayList<String> towrite) {
         try {
-            String outputFile = "./sample/output_sample_file_output_comparing_" + this.file1_path.charAt(this.file1_path.lastIndexOf(".") - 1) + "_and_" + this.file2_path.charAt(this.file2_path.lastIndexOf(".") - 1) + ".csv";
-            FileWriter fw = new FileWriter(outputFile);
+            String file_name = "mismatched_records_" + this.file1_path.charAt(this.file1_path.lastIndexOf(".") - 1) + "_and_" + this.file2_path.charAt(this.file2_path.lastIndexOf(".") - 1) + ".csv";
+            // set the new file's path in the same directory as file1_path
+            String file_path = this.file1_path.substring(0, this.file1_path.lastIndexOf("/") + 1) + file_name;
+            this.setOutput_file(file_path);
+            FileWriter fw = new FileWriter(file_path);
             BufferedWriter bw = new BufferedWriter(fw);
             for (String line : towrite) {
                 bw.write(line);
@@ -103,5 +111,25 @@ public class CompareCSV {
         }
         br.close();
         return resultRow;
+    }
+
+    public String getFile1_path() {
+        return file1_path;
+    }
+
+    public String getFile2_path() {
+        return file2_path;
+    }
+
+    public ArrayList<String> getCompared_records() {
+        return compared_records;
+    }
+
+    public String getOutput_file() {
+        return output_file;
+    }
+
+    public void setOutput_file(String output_file) {
+        this.output_file = output_file;
     }
 }
