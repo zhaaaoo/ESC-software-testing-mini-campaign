@@ -10,9 +10,9 @@ public class Main {
         String file_test1 = "tests/resource/accountlist1.csv";
         String file_test2 = "tests/resource/accountlist2.csv";
 
-//        CompareCSV compareCSV = new CompareCSV(file1_path, file3_path);
+        // Pass in the file path of the two csv files to be compared here
         CompareCSV compareCSV = new CompareCSV(file_test1, file_test2);
-
+        
         compareCSV.compare();
     }
 }

@@ -24,23 +24,23 @@ public class CompareCSVTest {
     // test to check that the compare function of class CompareCSV works correctly
     @Before
     public void compareCSV() {
-        // 1.change to true if file 1 and file 2 have mismatched records
+        // 1. Change to true if file 1 and file 2 have mismatched records
         mismatch = true;
 
-        // 2(a). uncomment below if you have the correct output file
+        // 2(a). Uncomment below if you have the correct output file
         System.out.println(System.getProperty("user.dir"));
         String file1_path = "tests/resource/sample_file_1.csv";
         String file2_path = "tests/resource/sample_file_2.csv";
         String file3_path = "tests/resource/sample_file_3.csv";
         correct_output_given = "tests/resource/sample_file_output_comparing_1_and_3.csv";
 
-        // 2(b). uncomment below if you do not have the correct output file and only know the wrong index of account in csv
+        // 2(b). Uncomment below if you do not have the correct output file and only know the wrong index of account in csv
         // file1_path = "tests/resource/accountlist1.csv";
         // file2_path = "tests/resource/accountlist2.csv";
         // file1_wrongline.add(0,2);
         // file2_wrongline.add(0,2);
 
-        // 3. Set fuzzing to true if you want to fuzz the output file
+        // 3. Set fuzzing to true if you want to fuzz the output file, note that we only fuzz the file in the 1st arg
         fuzzing = true;
 
         // 4. Change the variable
@@ -58,6 +58,7 @@ public class CompareCSVTest {
     private void setCSV(String file1_path, String file2_path) {
         compareCSV = new CompareCSV(file1_path, file2_path);
         if (fuzzing) {
+            // we only fuzz the 1st file
             fuzzed_path = "tests/resource/fuzzed_" + file1_path.charAt(file1_path.lastIndexOf(".") - 1) + ".csv";
             fuzzyTest = new FuzzyTest(fuzzed_path, correct_output_given);
             fuzzyTest.generateFuzzedCsv();
