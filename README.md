@@ -1,5 +1,7 @@
 # ESC_software_testing_mini_campaign
-This is part of the 50.003 Elements of Software Construction
+This is part of the 50.003 Elements of Software Construction.
+
+Student ID: 1005460
 
 ## Problem Statement: Data Reconciliation
 
@@ -38,22 +40,68 @@ For 3rd row, given the same unique combination, the balance of 2nd csv is higher
 |    <br>2    	| Customer ID = “ID1”<br>Account No. = “BOS12345”<br>Currency = “USD”<br>Type = “SAVINGS”<br>Balance = “1000”    	| Customer ID = “ID1”<br>Account No. =  “BOS12345”<br>Currency = “USD”<br>Type = “SAVINGS”<br>Balance = “1000”    	| These 2 records will not be written into the new csv file as the unique combination matches as well as the balance. 	|
 |    <br>3    	| Customer ID = “ID1”<br>Account No. = “BOS12345”<br>Currency = “USD”<br>Type = “SAVINGS”<br>Balance = “1000”    	| Customer ID = “ID1”<br>Account No. = “BOS12345”<br>Currency = “USD”<br>Type = “SAVINGS”<br>Balance = “2000”    	| Write these 2 records into the new csv file as the balance for 2nd csv is higher than that of the 1st csv for that unique account.    	|
 
+### Implementation
+In `Main.java`, include the string paths and pass them into the below function and run it.
+```java
+// Pass in the file path of the two csv files to be compared here
+CompareCSV compareCSV = new CompareCSV(file_test1, file_test2);
+```
 
-### Tasks Timeline
-#### Week 8 [Document and Code]
+`CompareCSV.java` will take in the two file paths and compare them using the `compare()` function. It reads the files line by line and creates an Account class to keep record of `customer_id`, `acc_num`, `acc_type`, `currency` and `balance`. During so, it checks and compares against both files to find any mismatch, write them to a new file which will be outputted as `mismatched_records_X_and_Y.csv`.
+
+### Testing
+Under the tests folder, there are 3 main classes: `AccountTest.java`, `CompareCSV.java` and `FuzzyTest.java`. The resource folder contains some CSV for testing purposes.
+
+`AccountTest.java` tests for the functions within `Account.java` class. Using parameterized test, the 3 boundary values are created and included for each pair of files to be compared. The test `compareAccountTest()` checks that the compare method that was overriden in `Account.java` is implemented correctly.
+
+`CompareCSV.java` tests for the functions within `CompareCSV.java` class. Follow the steps if you want to customise or use your own files for the testing. 
+
+1. If your two input files has mismatched records, set `mismatch = true`
+  ```java
+  // 1.change to true if file 1 and file 2 have mismatched records
+  mismatch = true;
+  ```
+2. Here we consider 2 use scenarios of the test file:
+    - (A) Is the case where you already have a csv file that contains the correct mismtached csv records
+    - (B) Is the case where you ONLY have 2 files that you want to compare, BUT you know the lines that      are mismatched.
+3. Set the option for fuzzy testing
+  ```java
+  // 3. Set fuzzing to true if you want to fuzz the output file, note that we only fuzz the file in the 1st arg
+  fuzzing = true;
+  ```
+4. Pass in the correct variable to the function below
+  ```java
+  // 4. Change the variable
+  setCSV(file1_path, file3_path);
+  ```
+5. Following step 3, use the 2 functions accordingly
+    - (A) Is the case where you already have a csv file that contains the correct mismtached csv records
+      ```java
+      // 5(a). Use this function if you do not have the correct output file
+      compareCSV_no_output_file(file1_path, file3_path);
+      ```
+    - (B) Is the case where you ONLY have 2 files that you want to compare, BUT you know the lines that      are mismatched.
+      ```java
+      // 5(b). Use this function if you have the correct output file
+      compareCSV_has_output_file();
+      ```
+
+
+## Tasks Timeline
+### Week 8 [Document and Code] - Completed on 09/07/2022 under commit 'task 2 complete'
 Use case diagram should be complete. All Java (or
 similar) files should be complete in terms of implementing the functionality and (in the
 bare minimum) the sample test files should pass. Deadline 10th July, 11.59pm.
 
-### Week 9 [Document]
+### Week 9 [Document] - Completed on 15/07/2022 under commit 'task 3 complete'
 A report on your boundary value analysis and equivalence class
 partitioning should be complete. Deadline 17th July, 11.59pm.
 
-### Week 10 [Code]
+### Week 10 [Code] - Completed on 24/07/2022 under commit 'task 4 complete'
 All (Junit) test files conducting unit and system level testing should be
 complete. Deadline 24th July, 11.59pm.
 
-### Week 12 [Code]
+### Week 12 [Code] - Completed on 07/08/2022 under commit 'bug fix'
 A refactored/bug fixed version of the code. The fuzzer code is
 complete and properly documented for running by a third-party. The implementations of
 others are also distributed this week for independent testing by group members.
