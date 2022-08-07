@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class CompareCSVTest {
 
     private Boolean mismatch;
+    private Boolean fuzzing;
+    private FuzzyTest fuzzyTest;
+    private String fuzzed_path;
     private String file1_path;
     private String file2_path;
     private String file3_path;
@@ -21,36 +24,54 @@ public class CompareCSVTest {
     // test to check that the compare function of class CompareCSV works correctly
     @Before
     public void compareCSV() {
-        // change accordingly
+        // 1.change to true if file 1 and file 2 have mismatched records
         mismatch = true;
 
-        // uncomment below if you have the correct output file
-        String file1_path = "src/sample/sample_file_1.csv";
-        String file2_path = "src/sample/sample_file_2.csv";
-        String file3_path = "src/sample/sample_file_3.csv";
-        correct_output_given = "src/sample/sample_file_output_comparing_1_and_3.csv";
+        // 2(a). uncomment below if you have the correct output file
+        System.out.println(System.getProperty("user.dir"));
+        String file1_path = "tests/resource/sample_file_1.csv";
+        String file2_path = "tests/resource/sample_file_2.csv";
+        String file3_path = "tests/resource/sample_file_3.csv";
+        correct_output_given = "tests/resource/sample_file_output_comparing_1_and_3.csv";
 
-        // uncomment below if you do not have the correct output file and only know the wrong index of account in csv
+        // 2(b). uncomment below if you do not have the correct output file and only know the wrong index of account in csv
         // file1_path = "tests/resource/accountlist1.csv";
         // file2_path = "tests/resource/accountlist2.csv";
-//        file1_wrongline.add(0,2);
-//        file2_wrongline.add(0,2);
+        // file1_wrongline.add(0,2);
+        // file2_wrongline.add(0,2);
 
-        // remember to change the file path # also
-        compareCSV = new CompareCSV(file1_path, file3_path);
-        if (mismatch == false) {
-        } else if (correct_output_given == null ) {
-            // use this function if you do not have the correct output file
-            compareCSV_no_output_file();
-        } else {
-            // use this function if you have the correct output file
-            compareCSV_has_output_file();
+        // 3. Set fuzzing to true if you want to fuzz the output file
+        fuzzing = true;
+
+        // 4. Change the variable
+        setCSV(file1_path, file3_path);
+
+        // 5(a). Use this function if you do not have the correct output file
+        compareCSV_no_output_file(file1_path, file3_path);
+
+        // 5(b). Use this function if you have the correct output file
+        // compareCSV_has_output_file();
+    }
+    
+
+    // helper function
+    private void setCSV(String file1_path, String file2_path) {
+        compareCSV = new CompareCSV(file1_path, file2_path);
+        if (fuzzing) {
+            fuzzed_path = "tests/resource/fuzzed_" + file1_path.charAt(file1_path.lastIndexOf(".") - 1) + ".csv";
+            fuzzyTest = new FuzzyTest(fuzzed_path, correct_output_given);
+            fuzzyTest.generateFuzzedCsv();
+            compareCSV = new CompareCSV(fuzzed_path, file2_path);
         }
     }
     
     // use this function if you do not have the correct output file
-    public void compareCSV_no_output_file() {
-        // Read file 1 and 2 and create a Class Account object for the wrong lines into the wrong_records list
+    public void compareCSV_no_output_file(String file1_path, String file2_path) {
+        // Read file 1 and 2 and create a Class Account object for the wrong lines and add into the wrong_records list
+        if (fuzzing) {
+            file1_path = fuzzed_path;
+            file1_wrongline = fuzzyTest.file1_wrongline;
+        }
         try {
             BufferedReader file1 = new BufferedReader(new java.io.FileReader(file1_path));
             String line1 = file1.readLine();
@@ -90,13 +111,12 @@ public class CompareCSVTest {
         try {
             BufferedReader correct_output = new BufferedReader(new java.io.FileReader(correct_output_given));
             String line1 = correct_output.readLine();
-            int line_num = 1;
+            line1 =null;
             while (line1 != null) {
                 String[] record1 = line1.split(",");
                 Account account1 = new Account(record1[0], record1[1], record1[2], record1[3], record1[4]);
                 wrong_records.add(account1);
                 line1 = correct_output.readLine();
-                line_num++;
             }
             correct_output.close();
         } catch (Exception e) {
@@ -104,7 +124,6 @@ public class CompareCSVTest {
         }
     }
 
-    // test to check that a new file is created with the correct name
     @Test
     public void compareCSVTest() {
         compareCSV.compare();

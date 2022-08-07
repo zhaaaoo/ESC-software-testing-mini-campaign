@@ -27,16 +27,16 @@ public class AccountTest {
     @Parameters public static Collection<Object[]> parameters() {
         return Arrays.asList(new Object [][] {
                 {false,
-                    new Account("ID1", "BOS12345", "USD", "SAVINGS", "1000"),
-                        new Account("ID1", "BOS12345", "USD", "SAVINGS", "500")
+                    new Account("ID1", "BOS12345", "SAVINGS", "USD", "1000"),
+                        new Account("ID1", "BOS12345", "SAVINGS", "SAVINGS", "500")
                 },
                 {true,
-                    new Account("ID2", "BOS12346", "USD", "SAVINGS", "1000"),
-                        new Account("ID2", "BOS12346", "USD", "SAVINGS", "1000")
+                    new Account("ID2", "BOS12346", "SAVINGS", "SAVINGS", "1000"),
+                        new Account("ID2", "BOS12346", "SAVINGS", "USD", "1000")
                 },
                 {false,
-                    new Account("ID3", "BOS12347", "USD", "SAVINGS", "1000"),
-                        new Account("ID3", "BOS12347", "USD", "SAVINGS", "2000")
+                    new Account("ID3", "BOS12347", "SAVINGS", "USD", "1000"),
+                        new Account("ID3", "BOS12347", "SAVINGS", "USD", "2000")
                 }
         });
     }
