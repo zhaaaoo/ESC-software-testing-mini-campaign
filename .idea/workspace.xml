@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c7b4ad3-92da-494d-b198-5b8dd54b0de6" name="Changes" comment="Setup">
-      <change afterPath="$PROJECT_DIR$/tests/resource/sample_file_1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/resource/sample_file_2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/resource/sample_file_3.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/output_sample_file_output_comparing_1_and_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resource/sample_file_output_comparing_1_and_3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CompareCSVTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CompareCSVTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/FuzzyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/FuzzyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resource/mismatched_records_1_and_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resource/mismatched_records_1_and_3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/resource/sample_file_output_comparing_1_and_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/tests/resource/sample_file_output_comparing_1_and_3.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +135,7 @@
       <workItem from="1658593756406" duration="2640000" />
       <workItem from="1658601365856" duration="6224000" />
       <workItem from="1659854586095" duration="686000" />
-      <workItem from="1659855374902" duration="6476000" />
+      <workItem from="1659855374902" duration="7134000" />
     </task>
     <task id="LOCAL-00001" summary="Setup">
       <created>1657363961020</created>

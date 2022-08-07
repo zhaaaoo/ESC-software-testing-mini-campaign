@@ -33,6 +33,10 @@ public class FuzzyTest {
                     skip_line = (int) (Math.random() * 10);
                 }
 
+                if (line == null) {
+                    break;
+                }
+
                 // adds the lines that are fuzzed
                 file1_wrongline.add(line_num);
 
